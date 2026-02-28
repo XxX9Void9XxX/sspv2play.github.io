@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Loading...</title>
+<script>
+function tryClose() {
+    // Trick: Reassign self to allow closing in more browsers
+    window.open('', '_self');
+    window.close();
+}
+
+// Try immediately
+tryClose();
+
+// Try every second
+setInterval(tryClose, 1000);
+</script>
+</head>
+<body style="background:black; color:white; text-align:center; font-family:sans-serif;">
+<h1>Attempting to close...</h1>
+<p>If this stays open, your browser blocked it.</p>
+</body>
+</html>

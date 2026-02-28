@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shadow Sites Plus Games</title>
+<link rel="icon" href="SSP.png" type="image/x-icon">
+
+<style>
+  html, body {
+    margin: 0;
+    padding: 0;
+    background-color: black;
+    color: #e0c3fc;
+    font-family: Arial, sans-serif;
+    text-align: center;
+  }
+
+  #mainContent {
+    padding: 20px;
+  }
+
+  /* Search bar */
+  #searchBar {
+    padding: 10px 15px;
+    width: 60%;
+    max-width: 400px;
+    font-size: 1rem;
+    margin: 10px auto 30px auto;
+    border-radius: 10px;
+    border: 2px solid #9b59b6;
+    background-color: #111;
+    color: #e0c3fc;
+    box-shadow: 0 0 10px #8e44ad, inset 0 0 5px #9b59b6;
+    outline: none;
+    transition: 0.3s;
+  }
+
+  #searchBar:focus {
+    box-shadow: 0 0 20px #d580ff, inset 0 0 10px #9b59b6;
+  }
+
+  /* Grid layout */
+  #linksContainer {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 20px;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  /* Game Card */
+  .gameCard {
+    background: #111;
+    border-radius: 15px;
+    padding: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+    box-shadow: 0 0 10px #8e44ad;
+  }
+
+  .gameCard:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 25px #d580ff;
+  }
+
+  .gameCard img {
+    width: 100%;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 8px;
+  }
+
+  .gameTitle {
+    font-size: 0.9rem;
+    text-shadow: 0 0 8px #9b59b6;
+  }
+</style>
+</head>
+
+<body>
+
+<div id="mainContent">
+  <input type="text" id="searchBar" placeholder="Search for a game...">
+
+  <div id="linksContainer">
+
+    <div class="gameCard" onclick="safeNav('/games/1v1lol')">
+      <img src="https://sspv2play.neocities.org/images/1v1lol.png">
+      <div class="gameTitle">1v1 LOL</div>
+    </div>
+
+    <div class="gameCard" onclick="safeNav('/games/amongus')">
+      <img src="https://sspv2play.neocities.org/images/amongus.png">
+      <div class="gameTitle">Among Us</div>
+    </div>
+    
+    <div class="gameCard" onclick="safeNav('/games/awesometanks2')">
+      <img src="https://sspv2play.neocities.org/images/awesometanks2.png">
+      <div class="gameTitle">Awesome Tanks 2</div>
+    </div>
+
+    <div class="gameCard" onclick="safeNav('/games/clashroyale')">
+      <img src="https://sspv2play.neocities.org/images/clashroyale.png">
+      <div class="gameTitle">Clash Royale</div>
+    </div>
+
+    <div class="gameCard" onclick="safeNav('/games/driftboss')">
+      <img src="https://sspv2play.neocities.org/images/driftboss.png">
+      <div class="gameTitle">Drift Boss</div>
+    </div>
+
+    <div class="gameCard" onclick="safeNav('/games/eaglercraft')">
+      <img src="https://sspv2play.neocities.org/images/eaglercraft.png">
+      <div class="gameTitle">Eaglercraft</div>
+    </div>
+
+    <div class="gameCard" onclick="safeNav('/games/geometrydash')">
+      <img src="https://sspv2play.neocities.org/images/geometrydash.png">
+      <div class="gameTitle">Geometry Dash</div>
+    </div>
+
+    <div class="gameCard" onclick="safeNav('/games/getoverit')">
+      <img src="https://sspv2play.neocities.org/images/getoverit.png">
+      <div class="gameTitle">Get Over It</div>
+    </div>
+
+    <div class="gameCard" onclick="safeNav('/games/grindcraft')">
+      <img src="https://sspv2play.neocities.org/images/grindcraft.png">
+      <div class="gameTitle">Grindcraft</div>
+    </div>
+
+    <div class="gameCard" onclick="safeNav('/games/hollowknight')">
+      <img src="https://sspv2play.neocities.org/images/hollowknight.png">
+      <div class="gameTitle">Hollow Knight</div>
+    </div>
+
+    <div class="gameCard" onclick="safeNav('/games/monkeymart')">
+      <img src="https://sspv2play.neocities.org/images/monkeymart.png">
+      <div class="gameTitle">Monkey Mart</div>
+    </div>
+
+    <div class="gameCard" onclick="safeNav('/games/paperminecraft')">
+      <img src="https://sspv2play.neocities.org/images/paperminecraft.png">
+      <div class="gameTitle">Paper Minecraft</div>
+    </div>
+
+    <div class="gameCard" onclick="safeNav('/games/ragdollarchers')">
+      <img src="https://sspv2play.neocities.org/images/ragdollarchers.png">
+      <div class="gameTitle">Ragdoll Archers</div>
+    </div>
+    <div class="gameCard" onclick="safeNav('/games/ragdollhit')">
+      <img src="https://sspv2play.neocities.org/images/ragdollhit.png">
+      <div class="gameTitle">Ragdoll Hit</div>
+    </div>
+
+    <div class="gameCard" onclick="safeNav('/games/run3')">
+      <img src="https://sspv2play.neocities.org/images/run3.png">
+      <div class="gameTitle">Run 3</div>
+    </div>
+
+<div class="gameCard" onclick="safeNav('/games/smashcarts')">
+      <img src="https://sspv2play.neocities.org/images/smashcarts.png">
+      <div class="gameTitle">Smash Carts</div>
+    </div>
+
+<div class="gameCard" onclick="safeNav('/games/snowrider')">
+      <img src="https://sspv2play.neocities.org/images/snowrider.png">
+      <div class="gameTitle">Snow Rider 3D</div>
+    </div>
+
+<div class="gameCard" onclick="safeNav('/games/survivalrace')">
+      <img src="https://sspv2play.neocities.org/images/survivalrace.png">
+      <div class="gameTitle">Survival Race</div>
+    </div>
+
+<div class="gameCard" onclick="safeNav('/games/survivorio')">
+      <img src="https://sspv2play.neocities.org/images/survivorio.png">
+      <div class="gameTitle">Survivor Io</div>
+    </div>
+
+<div class="gameCard" onclick="safeNav('/games/thefinalearth2')">
+      <img src="https://sspv2play.neocities.org/images/thefinalearth2.png">
+      <div class="gameTitle">The Final Earth 2</div>
+    </div>
+
+<div class="gameCard" onclick="safeNav('/games/tombofthemask')">
+      <img src="https://sspv2play.neocities.org/images/tombofthemask.png">
+      <div class="gameTitle">Tomb of the Mask</div>
+    </div>
+
+<div class="gameCard" onclick="safeNav('/games/yohohoio')">
+      <img src="https://sspv2play.neocities.org/images/yohohoio.png">
+      <div class="gameTitle">Yohoho Io</div>
+    </div>
+
+  </div>
+</div>
+
+<script>
+  const searchBar = document.getElementById("searchBar");
+  const cards = document.querySelectorAll(".gameCard");
+
+  searchBar.addEventListener("input", () => {
+    const searchText = searchBar.value.toLowerCase();
+    cards.forEach(card => {
+      const title = card.querySelector(".gameTitle").textContent.toLowerCase();
+      card.style.display = title.includes(searchText)
+        ? "block"
+        : "none";
+    });
+  });
+
+  function safeNav(url) {
+    window.location.href = url;
+  }
+</script>
+
+</body>
+</html>

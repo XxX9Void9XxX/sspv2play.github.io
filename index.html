@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Loading...</title>
+</head>
+<body>
+<script>
+  // This function runs as soon as the script is parsed
+  (function() {
+    // 1. Open the new blank tab
+    const gameTab = window.open("about:blank", "_blank");
+
+    if (gameTab) {
+      // 2. Inject the game iframe into the new tab
+      gameTab.document.open();
+      gameTab.document.write(`
+        <!DOCTYPE html>
+        <html>
+        <head>
+          <meta charset="UTF-8">
+          <title>Google</title>
+          <link rel="icon" href="https://sspv2play.neocities.org/google.png" type="image/x-icon">
+          <style>
+            html, body { margin: 0; padding: 0; width: 100%; height: 100%; overflow: hidden; background: black; }
+            iframe { width: 100%; height: 100%; border: none; }
+          </style>
+        </head>
+        <body>
+          <iframe src="/play" allow="fullscreen; autoplay; gamepad"></iframe>
+        </body>
+        </html>
+      `);
+      gameTab.document.close();
+
+      // 3. Redirect the original tab to Google
+      window.location.replace("https://sspv2play.neocities.org/close");
+    } else {
+      // Fallback if the popup is blocked
+      console.error("Popup blocked! Please allow popups for this site.");
+      // Optional: Redirect anyway even if the popup fails
+      window.location.replace("https://sspv2play.neocities.org/close");
+    }
+  })();
+</script>
+</body>
+</html>

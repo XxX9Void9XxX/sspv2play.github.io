@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shadow Sites Plus</title>
+<link rel="icon" href="SSP.png" type="image/x-icon">
+
+<style>
+  html, body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    overflow-x: hidden; /* prevent horizontal scroll */
+  }
+
+  #mainContent {
+    margin-top: 40px;
+  }
+
+  .line {
+    font-size: 1.8rem;
+    color: #e0c3fc;
+    text-shadow: 0 0 5px #9b59b6, 0 0 10px #8e44ad;
+    animation: pulse 2s infinite alternate, fadeIn 1s forwards;
+    margin: 1.5rem 0; /* spacing between lines like pressing Enter */
+    opacity: 0; /* start hidden for fade-in */
+    transition: transform 0.2s ease;
+    text-decoration: none;
+  }
+
+  a.line {
+    cursor: pointer;
+  }
+
+  a.line:hover {
+    transform: scale(1.05);
+  }
+
+  @keyframes pulse {
+    0% { text-shadow: 0 0 5px #9b59b6, 0 0 10px #8e44ad; }
+    50% { text-shadow: 0 0 15px #d580ff, 0 0 25px #9b59b6; }
+    100% { text-shadow: 0 0 5px #9b59b6, 0 0 10px #8e44ad; }
+  }
+
+  @keyframes fadeIn {
+    to { opacity: 1; }
+  }
+</style>
+</head>
+
+<body>
+
+<audio autoplay>
+  <source src="https://kappa.vgmsite.com/soundtracks/minecraft-trails-tales-original-game-soundtrack-2023/ihrofujyss/03.%20Bromeliad.mp3" type="audio/mp3">
+  Your browser does not support the audio element.
+</audio>
+
+<div id="mainContent">
+  <div class="line" style="animation-delay: 0s;">Credits:</div>
+<a href="https://www.youtube.com/@KaibotVR" target="_blank" rel="noopener noreferrer" class="line" style="animation-delay: 0.5s;">Subscribe to KaibotVR on YouTube</a>
+<div class="line" style="animation-delay: 1.5s;"></div>
+</div>
+<a href="https://linkclickhere.vercel.app" target="_blank" rel="noopener noreferrer" class="line" style="animation-delay: 1s;">Link to my friends site</a>
+</div>
+  <div class="line" style="animation-delay: 1.5s;"></div>
+<a href="https://youtube.com/@WavezGT" target="_blank" rel="noopener noreferrer" class="line" style="animation-delay: 1.5s;">Subscribe to WavezGT on YouTube</a>
+</div>
+  <div class="line" style="animation-delay: 2s;">Friend me on Minecraft</div>
+  <div class="line" style="animation-delay: 2.5s;">Main Minecraft Account: EntityXError</div>
+  <div class="line" style="animation-delay: 3s;">Other Minecraft Accounts: XVoidVortexX, DipolarJungle, XShadow989X, XVoidVortex989X</div>
+<a href="https://scratch.mit.edu/users/griffpatch/" target="_blank" rel="noopener noreferrer" class="line" style="animation-delay: 3.5s;">Thanks to Griffpatch for some scratch games</a>
+</div>
+<div class="line" style="animation-delay: 1.5s;"></div>
+<a href="https://www.nitrotype.com/team/XERROR" target="_blank" rel="noopener noreferrer" class="line" style="animation-delay: 4s;">Join my Nitro type team we are in 2nd place for the legend leauge tournament</a>
+</div>
+  <div class="line" style="animation-delay: 1.5s;"></div>
+<a href="https://discord.com/invite/unblockers" target="_blank" rel="noopener noreferrer" class="line" style="animation-delay: 4.5s;">Thanks to Utopia for the proxy backend</a>
+</div>
+  <div class="line" style="animation-delay: 5s;">Not all of these games/apps are mine — 
+    they belong to their owners.</div>
+</div>
+
+<script>
+  // Disable right-click
+  window.addEventListener('contextmenu', e => e.preventDefault());
+</script>
+
+</body>
+</html>

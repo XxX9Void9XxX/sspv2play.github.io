@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Page Not Found</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background: black;
+  color: white;
+}
+
+/* Hide everything by default */
+#sspContent { display: none; }
+
+#notFound {
+  display: none;
+  text-align: center;
+  padding-top: 50px;
+  color: black;
+  background: white;
+  height: 100vh;
+}
+
+body.ssp {
+  overflow: hidden;
+  text-align: center;
+  cursor: url('/mouse.png'), auto;
+}
+
+/* TOP BAR */
+#topBar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 70px;
+  background: black;
+  z-index: 1000;
+  box-shadow: 0 0 20px #9b59b6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+#topBar h1 {
+  margin: 0;
+  font-size: 1.5rem;
+  color: #e0c3fc;
+  text-shadow: 0 0 10px #9b59b6;
+  animation: pulse 2s infinite alternate;
+}
+
+#topBar a {
+  cursor: pointer;
+  font-weight: bold;
+  background: none;
+  border: none;
+  color: #e0c3fc;
+  text-decoration: none;
+  text-shadow: 0 0 8px #9b59b6;
+  transition: 0.2s;
+}
+
+#topBar a:hover {
+  color: #ffffff;
+  text-shadow: 0 0 15px #d580ff;
+}
+
+/* CLOCK */
+#clock {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  font-size: 1rem;
+  color: #a020f0;
+  background: rgba(0,0,0,0.7);
+  padding: 6px 10px;
+  border-radius: 6px;
+  z-index: 2000;
+  box-shadow: 0 0 10px #9b59b6;
+}
+
+/* SETTINGS */
+#settingsIcon {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  z-index: 2000;
+  filter: drop-shadow(0 0 10px #9b59b6);
+  animation: glowPulse 2s infinite alternate;
+}
+
+#settingsMenu {
+  position: fixed;
+  bottom: 90px;
+  left: 20px;
+  width: 260px;
+  background: black;
+  border: 2px solid #9b59b6;
+  border-radius: 12px;
+  padding: 15px;
+  display: none;
+  z-index: 3000;
+  box-shadow: 0 0 20px #9b59b6;
+  max-height: 70vh;
+  overflow-y: auto;
+}
+
+#settingsMenu h3 {
+  margin: 10px 0;
+  color: #e0c3fc;
+  border-bottom: 1px solid #9b59b6;
+  padding-bottom: 5px;
+}
+
+#settingsMenu label {
+  display: block;
+  margin: 12px 0;
+  cursor: pointer;
+}
+
+/* TOOL BUTTONS */
+.tool-btn {
+  display: block;
+  width: 100%;
+  padding: 8px;
+  margin: 8px 0;
+  background: transparent;
+  border: 1px solid #9b59b6;
+  color: #e0c3fc;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.tool-btn:hover {
+  background: #9b59b6;
+  color: white;
+  box-shadow: 0 0 10px #d580ff;
+}
+
+/* MAIN AREA */
+#mainContent {
+  position: absolute;
+  top: 70px;
+  left: 0;
+  width: 100%;
+  height: calc(100vh - 70px);
+  overflow: hidden;
+}
+
+#homeContent {
+  margin-top: 40px;
+}
+
+#contentFrame {
+  width: 100%;
+  height: 100%;
+  border: none;
+  display: none;
+}
+
+/* Glow Disable */
+.noGlow * {
+  text-shadow: none !important;
+  box-shadow: none !important;
+  filter: none !important;
+  animation: none !important;
+}
+
+/* Animations */
+@keyframes pulse {
+  0% { text-shadow: 0 0 5px #9b59b6; }
+  100% { text-shadow: 0 0 20px #d580ff; }
+}
+
+@keyframes glowPulse {
+  0% { filter: drop-shadow(0 0 5px #9b59b6); }
+  100% { filter: drop-shadow(0 0 20px #d580ff); }
+}
+</style>
+</head>
+
+<body>
+
+<div id="notFound">
+  <h1>Page Not Found</h1>
+  <h2>The requested web page was not found on this site.</h2>
+</div>
+
+<div id="sspContent">
+  <div id="clock"></div>
+
+  <img id="settingsIcon" src="sspv2play.neocities.org/images/settings.png">
+
+  <div id="settingsMenu">
+    <h3>General</h3>
+    <label><input type="checkbox" id="toggleMusic"> Background Music</label>
+    <label><input type="checkbox" id="toggleGlow"> Glow Effects</label>
+    <label><input type="checkbox" id="toggleClock"> Show Clock</label>
+    
+    <h3>Tools</h3>
+    <button class="tool-btn" onclick="runTool('adblock')">Adblocker</button>
+    <button class="tool-btn" onclick="runTool('autoclicker')">Autoclicker</button>
+    <button class="tool-btn" onclick="runTool('asteroids')">Asteroids</button>
+    <button class="tool-btn" onclick="runTool('edit')">Toggle Edit Mode</button>
+  </div>
+
+  <audio id="bgMusic" loop autoplay>
+    <source src="https://kappa.vgmsite.com/soundtracks/minecraft-trails-tales-original-game-soundtrack-2023/ihrofujyss/03.%20Bromeliad.mp3" type="audio/mp3">
+  </audio>
+
+  <div id="topBar">
+    <h1>Shadow Sites Plus</h1>
+    <a onclick="loadPage('/proxy')">Proxy</a>
+    <a onclick="loadPage('/games')">Games</a>
+    <a onclick="loadPage('/apps')">Apps</a>
+    <a onclick="loadPage('/credits')">Credits</a>
+    <a onclick="loadPage('/minecraft')">Minecraft Stuff</a>
+    <a onclick="loadPage('/proxylinks')">Links</a>
+  </div>
+
+  <div id="mainContent">
+    <div id="homeContent">
+      <h2>Welcome to SSP</h2>
+      <h2>This Website is still partially under construction</h2>
+    </div>
+    <iframe id="contentFrame"></iframe>
+  </div>
+</div>
+
+<script>
+(function() {
+  if (window.self !== window.top) {
+    document.getElementById('sspContent').style.display = 'block';
+    document.body.classList.add('ssp');
+
+    const clock = document.getElementById('clock');
+    const music = document.getElementById('bgMusic');
+    const settingsMenu = document.getElementById('settingsMenu');
+    const settingsIcon = document.getElementById('settingsIcon');
+
+    function updateClock() {
+      const now = new Date();
+      let h = now.getHours();
+      const m = String(now.getMinutes()).padStart(2, '0');
+      const s = String(now.getSeconds()).padStart(2, '0');
+      const ampm = h >= 12 ? 'PM' : 'AM';
+      h = h % 12 || 12;
+      clock.textContent = `${h}:${m}:${s} ${ampm}`;
+    }
+
+    setInterval(updateClock, 1000);
+    updateClock();
+
+    window.loadPage = function(url) {
+      document.getElementById('homeContent').style.display = "none";
+      const frame = document.getElementById('contentFrame');
+      frame.style.display = "block";
+      frame.src = url;
+    };
+
+    // TOOL LOGIC
+    window.runTool = function(type) {
+      switch(type) {
+        case 'adblock':
+          fetch('https://cdn.jsdelivr.net/gh/wea-f/Norepted@1bbb8e7/bookmarklets/adblocker.js').then(r => r.text()).then(eval);
+          break;
+        case 'autoclicker':
+          fetch('https://cdn.jsdelivr.net/gh/wea-f/Norepted@a4cd53b/bookmarklets/autoclicker.js').then(r => r.text()).then(eval);
+          break;
+        case 'asteroids':
+          var s = document.createElement('script');
+          s.type='text/javascript';
+          document.body.appendChild(s);
+          s.src='https://cdn.jsdelivr.net/gh/skysthelimitt/Selenite/js/asteroids.min.js';
+          break;
+        case 'edit':
+          document.body.contentEditable = (document.body.contentEditable === "true") ? "false" : "true";
+          break;
+      }
+    };
+
+    settingsIcon.onclick = function(e) {
+      e.stopPropagation();
+      settingsMenu.style.display = settingsMenu.style.display === "block" ? "none" : "block";
+    };
+
+    document.addEventListener("click", function(e) {
+      if (!settingsMenu.contains(e.target) && e.target !== settingsIcon) {
+        settingsMenu.style.display = "none";
+      }
+    });
+
+    const saved = JSON.parse(localStorage.getItem("sspSettings")) || {
+      music: true, glow: true, clock: true
+    };
+
+    const toggleMusic = document.getElementById("toggleMusic");
+    const toggleGlow = document.getElementById("toggleGlow");
+    const toggleClock = document.getElementById("toggleClock");
+
+    toggleMusic.checked = saved.music;
+    toggleGlow.checked = saved.glow;
+    toggleClock.checked = saved.clock;
+
+    function applySettings(s) {
+      if (s.music) { music.play().catch(e => console.log("Autoplay blocked")); } else { music.pause(); }
+      s.glow ? document.body.classList.remove("noGlow") : document.body.classList.add("noGlow");
+      clock.style.display = s.clock ? "block" : "none";
+    }
+
+    function saveSettings() {
+      const s = {
+        music: toggleMusic.checked,
+        glow: toggleGlow.checked,
+        clock: toggleClock.checked
+      };
+      localStorage.setItem("sspSettings", JSON.stringify(s));
+      applySettings(s);
+    }
+
+    toggleMusic.onchange = saveSettings;
+    toggleGlow.onchange = saveSettings;
+    toggleClock.onchange = saveSettings;
+
+    applySettings(saved);
+    window.addEventListener('contextmenu', e => e.preventDefault());
+
+  } else {
+    document.getElementById('notFound').style.display = 'block';
+  }
+})();
+</script>
+
+</body>
+</html>

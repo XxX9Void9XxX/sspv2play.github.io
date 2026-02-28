@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shadow Sites Plus Minecraft</title>
+<link rel="icon" href="SSP.png" type="image/x-icon">
+
+<style>
+  html, body {
+    margin: 0;
+    padding: 0;
+    background-color: black;
+    color: #e0c3fc;
+    font-family: Arial, sans-serif;
+    text-align: center;
+  }
+
+  #mainContent {
+    margin: 0;
+    padding-top: 20px;
+  }
+
+  /* Search bar */
+  #searchBar {
+    padding: 10px 15px;
+    width: 60%;
+    max-width: 400px;
+    font-size: 1rem;
+    margin: 10px auto 20px auto;
+    border-radius: 10px;
+    border: 2px solid #9b59b6;
+    background-color: #111;
+    color: #e0c3fc;
+    box-shadow: 0 0 10px #8e44ad, inset 0 0 5px #9b59b6;
+    outline: none;
+    transition: 0.3s;
+  }
+
+  #searchBar:focus {
+    box-shadow: 0 0 20px #d580ff, inset 0 0 10px #9b59b6;
+  }
+
+  #linksContainer div {
+    margin: 8px 0;
+    cursor: pointer;
+    text-decoration: underline;
+    text-shadow: 0 0 5px #9b59b6, 0 0 10px #8e44ad;
+    animation: pulse 2s infinite alternate;
+  }
+
+  #linksContainer div:hover {
+    text-shadow: 0 0 20px #d580ff, 0 0 30px #9b59b6;
+  }
+
+  @keyframes pulse {
+    0% { text-shadow: 0 0 5px #9b59b6, 0 0 10px #8e44ad; }
+    50% { text-shadow: 0 0 15px #d580ff, 0 0 25px #9b59b6; }
+    100% { text-shadow: 0 0 5px #9b59b6, 0 0 10px #8e44ad; }
+  }
+</style>
+</head>
+
+<body>
+
+<div id="mainContent">
+  <input type="text" id="searchBar" placeholder="Search for Minecraft Stuff">
+
+  <div id="linksContainer">
+    <div onclick="safeNav('/minecraft/minecrafthacks')">Minecraft Hacks</div>
+    <div onclick="safeNav('/minecraft/minecraftunobtainables')">Minecraft Unobtainables</div>
+    <div onclick="safeNav('/minecraft/actualminecraft')">Real Minecraft</div>
+  </div>
+</div>
+
+<script>
+  const searchBar = document.getElementById("searchBar");
+  const links = document.querySelectorAll("#linksContainer div");
+
+  searchBar.addEventListener("input", () => {
+    const searchText = searchBar.value.toLowerCase();
+    links.forEach(link => {
+      link.style.display = link.textContent.toLowerCase().includes(searchText)
+        ? "block"
+        : "none";
+    });
+  });
+
+  function safeNav(url) {
+    window.location.href = url;
+  }
+</script>
+
+</body>
+</html>
